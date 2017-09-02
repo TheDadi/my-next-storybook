@@ -9,9 +9,9 @@ import '../../static/css/main.css';
 
 
 // TODO: Components
-import GistListItem from '../gist-list-item';
-import GistDetail from '../gist-detail';
-import GistForm from '../gist-form';
+import GistListItem from '../gist/gist-list-item';
+import GistDetail from '../gist/gist-detail';
+import GistForm from '../gist/gist-form';
 
 //import GistStats from '../gist-stats';
 //import GistFileInput from '../gist-file-input';

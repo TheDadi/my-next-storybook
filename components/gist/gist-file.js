@@ -15,9 +15,11 @@ export default class GistFile extends React.Component {
     }
 	}
 
+
 	_loadRawContents(url){
 		return fetch(url).then(resp => resp.text().then(text => text))
 	}
+
 
 	componentWillMount() {
 		let {file} = this.props;
