@@ -3,11 +3,15 @@ import brace from 'brace';
 import AceEditor from 'react-ace';
 import 'brace/mode/javascript';
 import 'brace/theme/monokai';
+
+
+
 export default class GistFileInput extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			index: 0,
 			file: {
 				filename: 'default.js',
 				ext: 'js',
@@ -42,11 +46,9 @@ const sayHello = (name) =>{
 
 	/* Handle updating the state content */
 	_handleChange(e) {
-		this.setState({
-			file: {
-				content: e
-			}
-		})
+		var state = this.state;
+		state.file.content = e;
+		this.setState(state)
 		console.log('_handleChange', e)
 	}
 
@@ -59,14 +61,16 @@ const sayHello = (name) =>{
 	//Handle changing filename and updateing the language based on extension.
 	_handleFilenameChange(e){
 		console.log('_handleFilenameChange', e.target.value)
+		if(!e.target.value){
+			return;
+		}
 		this.setState({
 			file: {
+				filename: e.target.value,
+				content: '',
 				ext: (`${e.target.value}`).split('.').pop()
 			}
 		})
-	}
-	_getFileExt(filename){
-		return (`${filename}`).split('.').pop();
 	}
 
 	render() {
@@ -89,6 +93,7 @@ const sayHello = (name) =>{
 									title="Delete File"
 									onClick={(e) => this._handleClickDelete(e)}>
 									<i className="fa fa-trash-o"></i>
+									Delete
 								</button>
 							</span>
 						</div>

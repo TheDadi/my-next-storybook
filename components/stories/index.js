@@ -1,6 +1,7 @@
 import React from 'react';
-import {storiesOf} from '@storybook/react';
-import {action} from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+//import { withInfo } from '@storybook/addon-info';
 
 import '../../static/css/bootstrap.min.css';
 import '../../static/css/github.min.css';
@@ -9,11 +10,12 @@ import '../../static/css/main.css';
 
 // TODO: Components
 import GistListItem from '../gist-list-item';
-import GistStats from '../gist-stats';
 import GistDetail from '../gist-detail';
 import GistForm from '../gist-form';
-import GistFileInput from '../gist-file-input';
-import GistUser from '../gist-user';
+
+//import GistStats from '../gist-stats';
+//import GistFileInput from '../gist-file-input';
+//import GistUser from '../gist-user';
 
 // TODO: Mocks
 const mockGist = require('./mock-gist');
@@ -26,10 +28,17 @@ storiesOf('Button', module).add('with text', () => (
 	<button onClick={action('clicked')}>😀 😎 👍 💯</button>
 ));
 
-
-storiesOf('Gist / List Item', module).add('with content', () => (<GistListItem gist={mockGist} compact='true'/>));
+/*
+storiesOf('Gist / List Item', module)
+  .add('simple info',
+    withInfo('Simple gist list item.')(() =>
+      <GistListItem gist={mockGist}/>
+    )
+  )
+*/
+storiesOf('Gist / List', module).add('with content', () => (<GistListItem gist={mockGist}/>));
 storiesOf('Gist / Detail', module).add('default', () => (<GistDetail gist={mockGist}/>));
-//storiesOf('Gist / Form', module).add('default', () => (<GistForm gist={mockGist}/>));
-storiesOf('Gist / File Input', module).add('default', () => (<GistFileInput file={mockFile}/>));
+storiesOf('Gist / Form', module).add('default', () => (<GistForm gist={mockGist}/>));
+//storiesOf('Gist / File Input', module).add('default', () => (<GistFileInput file={mockFile}/>));
 //storiesOf('Gist / Stats', module).add('default', () => (<GistStats gist={mockGist}/>));
 //storiesOf('Gist / User', module).add('default', () => (<GistUser gist={mockGist}/>));
