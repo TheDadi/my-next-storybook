@@ -1,6 +1,7 @@
 # my-next-storybook
 A react component playground with Storybook.
 
+[![Build Status](https://travis-ci.org/jonniespratley/my-next-storybook.svg?branch=master)](https://travis-ci.org/jonniespratley/my-next-storybook)
 
 
 > This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
