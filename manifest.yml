@@ -1,0 +1,7 @@
+#
+applications:
+  - name: my-next-storybook
+    buildpack: staticfile_buildpack
+    path: .out
+    memory: 64M
+    stack: cflinuxfs2

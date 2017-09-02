@@ -1,0 +1,7 @@
+.git
+.storybook
+node_modules
+pages
+components
+.log
+.DS_Store

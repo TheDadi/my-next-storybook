@@ -1,21 +1,18 @@
 language: node_js
 node_js:
 - '8'
-services:
-#- couchdb
-before_script:
-#- curl -X PUT localhost:5984/passbook-server
-env:
-#- PASSBOOK_SERVER_DATABASE_URL=http://localhost:5984/passbook-server
+services: 
+before_script: 
+env: 
 script:
-  - yarn run storybook:build
+- yarn run storybook:build
 deploy:
   provider: cloudfoundry
   api: https://api.system.aws-usw02-pr.ice.predix.io
   username: jonnie.spratley@ge.com
   password:
-    secure: AKnrIRQTSZvEIcMda0S/Bef7Wn+89Setofs3qJ5Ec4djTJECU3nO+8mohWIkqEf6VBn5/P+asmaTqMsMkPDQ5X0u7nHGvCa+oZcLeFvuRZro7QMuDPq0bhuBA3+j3uxbpVp+dmZNmMagswsadp+r/pTP9E2KT5METx1VyQ4yApw=
+    secure: NJtjquOhd5xn8C19hEe8vxG47sUbhazoYyrw3mrqWGpJQkrQ9AQmhiJlRH2gydNeCRwI8CbRDIOBT5g5FiTBBQ6dAh+SXQCOdHCuSq5HviEMr9vYPL4UyoBq4Sybci5NWt+3V7HIt6/Z6ujTVG+CPBbORqkhAyZ9R9rl23IswOOabF4WuHmFWFfTgLXijRwe9QCFmq4fCcfCSa2dJj9BxpY8TEZY1m1819KAqt0T8/+1Bf6trLeL9KjUEF0JhBTJzi4tt6fzJF4xH+CGUv/6+Tp+iWL4YqWrxuIdjX4ehfo50dt4sXL203IVxOpFeq0hwoVOUX2KRdzlSfL+SiLqfNzAeA9eqHjycYHbH5JjWne5bb5JFAduy6ABbzORjfOSvORuZi0krIz+YnrpMfk7/BGQc0TL9sKOGRZ34HceEKRqJVWrDchABGz8Vt+TZzpxa8x4CK41++YdVCEJUJsWSV1wQObCOzi0ixwEENOJXjpwYjZVICFRpELzLEV43tdnA1Ijy2slysS8Ka+3NwF910poXhbxSxRq4DHuOQS0klRbYTUCtu7RdlceCuSacS7JuDLMtWG/lX6RCw8r+JY5RO6+6JesACmaKqfLCEOxc6y0F8KkRZxfnP5lcIumHXFo9G1RkVj50gk7aIocsPdcLLr+vPB9rpfOB8bogbmkxb0=
   organization: jonnie.spratley@ge.com
-  space: Development
+  space: production
   on:
     repo: jonniespratley/my-next-storybook
