@@ -10,6 +10,7 @@ import '../static/css/main.css';
 
 // TODO: Components
 import Gists from '../components/gists';
+import GistBanner from '../components/gist-banner';
 import GistListItem from '../components/gist/gist-list-item';
 import GistDetail from '../components/gist/gist-detail';
 import GistForm from '../components/gist/gist-form';
@@ -40,6 +41,7 @@ storiesOf('Gist / List Item', module)
   )
 */
 storiesOf('Gists', module).add('default', () => (<Gists gists={mockGists}/>));
+storiesOf('Gist / Banner', module).add('default', () => (<GistBanner/>));
 storiesOf('Gist / List Item', module).add('with content', () => (<GistListItem gist={mockGist}/>));
 storiesOf('Gist / Detail', module).add('default', () => (<GistDetail gist={mockGist}/>));
 storiesOf('Gist / Form', module).add('default', () => (<GistForm gist={mockGist}/>));

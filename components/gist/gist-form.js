@@ -1,6 +1,6 @@
 import React from 'react'
 import GistFileInput from './gist-file-input'
-
+import GistBanner from '../gist-banner'
 
 export default class GistForm extends React.Component {
 	constructor(props) {
@@ -40,8 +40,9 @@ export default class GistForm extends React.Component {
 
 	render() {
 		return (
-			<div className="p-3 mb-4">
-				<form className="gist-form" action="">
+			<div className="">
+			<GistBanner/>
+				<form className="gist-form container" action="">
   				<div className="mb-4">
   					<input type="text" className="form-control" placeholder="Gist description..." />
   				</div>
