@@ -3,22 +3,25 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 //import { withInfo } from '@storybook/addon-info';
 
-import '../../static/css/bootstrap.min.css';
-import '../../static/css/github.min.css';
-import '../../static/css/main.css';
+import '../static/css/bootstrap.min.css';
+import '../static/css/github.min.css';
+import '../static/css/main.css';
 
 
 // TODO: Components
-import GistListItem from '../gist/gist-list-item';
-import GistDetail from '../gist/gist-detail';
-import GistForm from '../gist/gist-form';
+import Gists from '../components/gists';
+import GistListItem from '../components/gist/gist-list-item';
+import GistDetail from '../components/gist/gist-detail';
+import GistForm from '../components/gist/gist-form';
 
 //import GistStats from '../gist-stats';
 //import GistFileInput from '../gist-file-input';
 //import GistUser from '../gist-user';
 
 // TODO: Mocks
+
 const mockGist = require('./mock-gist');
+const mockGists = [ mockGist ];
 const mockFile = mockGist.files[Object.keys(mockGist.files)[0]];
 
 // TODO: Stories
@@ -36,7 +39,8 @@ storiesOf('Gist / List Item', module)
     )
   )
 */
-storiesOf('Gist / List', module).add('with content', () => (<GistListItem gist={mockGist}/>));
+storiesOf('Gists', module).add('default', () => (<Gists gists={mockGists}/>));
+storiesOf('Gist / List Item', module).add('with content', () => (<GistListItem gist={mockGist}/>));
 storiesOf('Gist / Detail', module).add('default', () => (<GistDetail gist={mockGist}/>));
 storiesOf('Gist / Form', module).add('default', () => (<GistForm gist={mockGist}/>));
 //storiesOf('Gist / File Input', module).add('default', () => (<GistFileInput file={mockFile}/>));

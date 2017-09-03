@@ -51,17 +51,17 @@ export default class GistFile extends React.Component {
 		const file = this.props.file;
 		return (
 			<div className="card gist gist__file" id={file.filename}>
-  			<div className="card-header gist__filename p-2 d-flex justify-content-between align-items-center"
+  			<header className="card-header gist__filename p-2 d-flex justify-content-between align-items-center"
           onClick={(e) => this.handleClick(e)}>
   				<a href={`#${file.filename}`}>
             <i className="fa fa-file-code-o"></i> {file.filename}</a>
   				<a href={file.raw_url}
             className="btn  btn-outline-secondary btn-sm" target="_blank">Raw</a>
-  			</div>
-  			<div className="card-block p-0">
+  			</header>
+  			<section className="card-block p-0">
   				<pre className='gist__code'><code className={file.language}  ref={(code) => { this.codeBlock = code; }}>{file.content}</code></pre>
-  			</div>
-		</div>
+  			</section>
+			</div>
 		)
 	}
 }

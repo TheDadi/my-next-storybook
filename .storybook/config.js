@@ -8,8 +8,8 @@ function loadStoryFiles() {
 }
 
 function loadStories() {
-  require('../components/stories/index.js');
-  require('../components/stories/nav.js');
+  require('../stories/index.js');
+  //require('../stories/nav.js');
   // You can require as many stories as you need.
 }
 

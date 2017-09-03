@@ -2,7 +2,7 @@ import React from 'react'
 import brace from 'brace';
 import AceEditor from 'react-ace';
 import 'brace/mode/javascript';
-import 'brace/theme/monokai';
+import 'brace/theme/github';
 
 
 
@@ -125,17 +125,17 @@ const sayHello = (name) =>{
 				<div className="gist__file-code">
 					<AceEditor
 						value={this.state.file.content}
-						height= '10rem'
+						height= '15rem'
 						width='100%'
 						setOptions={{
 							enableBasicAutocompletion: false,
 							enableLiveAutocompletion: false,
 							tabSize: 4,
-							fontSize: 13,
+							fontSize: 12,
 							showGutter: true
 						}}
 						mode="javascript"
-						theme="monokai"
+						theme="github"
 						onChange={this._handleChange}
 						name="UNIQUE_ID_OF_DIV"
 						editorProps={{$blockScrolling: true}}
