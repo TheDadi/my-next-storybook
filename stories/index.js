@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 //import { withInfo } from '@storybook/addon-info';
 
-import '../static/css/bootstrap.min.css';
-import '../static/css/github.min.css';
-import '../static/css/main.css';
+
+import '../components/styles';
+
 
 
 // TODO: Components
-import Gists from '../components/gists';
+import Gists from '../components/gists/index';
 import GistBanner from '../components/gist-banner';
-import GistListItem from '../components/gist/gist-list-item';
+import GistListItem from '../components/gist';
 import GistDetail from '../components/gist/gist-detail';
 import GistForm from '../components/gist/gist-form';
 
@@ -22,7 +22,7 @@ import GistForm from '../components/gist/gist-form';
 // TODO: Mocks
 
 const mockGist = require('./mock-gist');
-const mockGists = [ mockGist ];
+const mockGists = require('./mock-gists.json');
 const mockFile = mockGist.files[Object.keys(mockGist.files)[0]];
 
 // TODO: Stories
