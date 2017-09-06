@@ -7,19 +7,16 @@ import 'brace/theme/github';
 
 
 export default class GistFileInput extends React.Component {
-
+	shouldComponentUpdate(){
+		return false;
+	}
 	constructor(props) {
 		super(props);
 		this.state = {
-			index: 0,
 			file: {
 				filename: 'default.js',
 				ext: 'js',
-				content: `'use strict';
-const myName = 'Jonnie';
-const sayHello = (name) =>{
-	console.log('Hello ' + name);
-};`
+				content: ``
 			}
 		};
 		console.log('GistFileInput', props);
@@ -37,25 +34,24 @@ const sayHello = (name) =>{
 	 * @return {type}   description
 	 */
 	_handleClickDelete(e) {
-		console.log('_handleClickDelete', e, this.props.key);
 		if (this.props.onDelete) {
-			this.props.onDelete(this.state.file);
+			this.props.onDelete(this.props.index);
 		}
 	}
 
 
 	/* Handle updating the state content */
 	_handleChange(e) {
-		var state = this.state;
+		var state = Object.assign(this.state);
 		state.file.content = e;
-		this.setState(state)
-		console.log('_handleChange', e)
+		if(this.props.onChange){
+			this.props.onChange(this.props.index, state.file);
+		}
 	}
 
 	//Handle chaning the tab mode
 	_handleIndentChange(e){
-		console.log('_handleIndentChange', e)
-		console.warn('Change indent to', e.target.value)
+		console.warn('_handleIndentChange.Change indent to', e.target.value)
 	}
 
 	//Handle changing filename and updateing the language based on extension.
@@ -75,8 +71,12 @@ const sayHello = (name) =>{
 
 	render() {
 		const file = this.props.file;
-
-		console.log('render', file);
+		const options = this.props.options || {
+			tabSize: 4,
+			fontSize: 12,
+			showGutter: true
+		};
+		console.log('render', this);
 		return (
 			<div>
 				<div className="gist__file-toolbar d-flex p-2 justify-content-between">
@@ -127,17 +127,11 @@ const sayHello = (name) =>{
 						value={this.state.file.content}
 						height= '15rem'
 						width='100%'
-						setOptions={{
-							enableBasicAutocompletion: false,
-							enableLiveAutocompletion: false,
-							tabSize: 4,
-							fontSize: 12,
-							showGutter: true
-						}}
+						setOptions={options}
 						mode="javascript"
 						theme="github"
 						onChange={this._handleChange}
-						name="UNIQUE_ID_OF_DIV"
+						name="fileCode"
 						editorProps={{$blockScrolling: true}}
 								/>
 						</div>
